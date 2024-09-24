@@ -29,22 +29,19 @@ UDP_Client* UDP_Open(const char* host, int port) {
     return client;
 }
 
-void UDP_SetHandle(UDP_Client* client, void (*handle)(void*, BUF_Buffer*)) {
+void UDP_SetHandle(UDP_Client* client, void (*handle)(void*, char*, int)) {
     client->handle = handle;
 }
 
 void UDP_Listen(UDP_Client* client) {
     int size = 2048;
     char message[size];
-    memset(message, 0, size);
-    BUF_Buffer buffer;
     while (client->running) {
         int read = recvfrom(client->sockfd, message, size, 0, (struct sockaddr*) &server_addr, &server_addr_len);
         if (read < 0) {
             break;
         }
-        BUF_Update(&buffer, message, read);
-        client->handle(client, &buffer);
+        client->handle(client, message, read);
     }
 }
 

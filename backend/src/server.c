@@ -28,7 +28,7 @@ UDP_Server* UDP_Open(int port) {
     return server;
 }
 
-void UDP_SetHandle(UDP_Server* server, void (*handle)(UDP_Server*, UDP_Client, char*, int)) {
+void UDP_SetHandle(UDP_Server* server, void (*handle)(void*, UDP_Client, char*, int)) {
     server->handle = handle;
 }
 

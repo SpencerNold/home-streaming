@@ -13,7 +13,7 @@ typedef struct {
 } UDP_Server;
 
 UDP_Server* UDP_Open(int port);
-void UDP_SetHandle(UDP_Server* server, void (*handle)(UDP_Server*, UDP_Client, char*, int));
+void UDP_SetHandle(UDP_Server* server, void (*handle)(void*, UDP_Client, char*, int));
 void UDP_Listen(UDP_Server* server);
 int UDP_Send(UDP_Server* server, UDP_Client client, char* data, int length);
 void UDP_Close(UDP_Server* server);

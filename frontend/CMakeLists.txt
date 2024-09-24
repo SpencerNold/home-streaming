@@ -18,7 +18,7 @@ link_directories(${SWSCALE_LIBRARY_DIRS})
 link_directories(${SDL2_LIBRARY_DIRS})
 
 add_executable(${PROJECT_NAME}
-    src/main.c src/window.c src/client.c src/thread.c src/packet.c src/buffer.c src/frame.c
+    src/main.c src/window.c src/client.c src/thread.c src/frame.c
 )
 
 target_link_libraries(${PROJECT_NAME}
