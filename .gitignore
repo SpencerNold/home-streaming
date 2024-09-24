@@ -2,3 +2,5 @@
 *.bat
 **/build
 .vscode
+.DS_Store
+/backend/movies/*
